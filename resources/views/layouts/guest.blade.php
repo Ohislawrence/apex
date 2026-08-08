@@ -23,7 +23,12 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @if(file_exists(public_path('build/manifest.json')))
+            <link rel="stylesheet" href="{{ asset('build/assets/app-BTNyJX2P.css') }}">
+            <script src="{{ asset('build/assets/app-CcEFHwyy.js') }}" defer></script>
+        @else
+            <script src="https://cdn.tailwindcss.com"></script>
+        @endif
     </head>
     <body class="font-['Inter'] text-gray-900 antialiased">
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">

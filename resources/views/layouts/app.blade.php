@@ -30,7 +30,26 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @if(file_exists(public_path('build/manifest.json')))
+        <link rel="stylesheet" href="{{ asset('build/assets/app-BTNyJX2P.css') }}">
+        <script src="{{ asset('build/assets/app-CcEFHwyy.js') }}" defer></script>
+    @else
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                darkMode: 'class',
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            'orbitron': ['Orbitron', 'sans-serif'],
+                            'rajdhani': ['Rajdhani', 'sans-serif'],
+                        }
+                    }
+                }
+            }
+        </script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    @endif
     @stack('styles')
 </head>
 <body class="bg-[#0a0a14] text-white font-['Inter']">

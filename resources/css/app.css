@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   APEX CLOUD TECH - HIGH TECH DESIGN SYSTEM
+   ============================================ */
+
+/* Base Variables */
+:root {
+    --color-dark: #0a0a14;
+    --color-darker: #060610;
+    --color-yellow: #facc15;
+    --color-yellow-dark: #eab308;
+    --color-blue: #3b82f6;
+    --color-blue-dark: #2563eb;
+    --color-cyan: #06b6d4;
+    --color-purple: #a78bfa;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0a0a14; }
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #3b82f6, #facc15);
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #2563eb, #eab308);
+}
+
+/* Selection */
+::selection {
+    background: rgba(250, 204, 21, 0.3);
+    color: #fff;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.fade-in-up { animation: fadeInUp 0.7s ease-out forwards; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+.float { animation: float 6s ease-in-out infinite; }
+
+@keyframes glowPulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(250, 204, 21, 0.2); }
+    50% { box-shadow: 0 0 40px rgba(250, 204, 21, 0.4), 0 0 80px rgba(59, 130, 246, 0.2); }
+}
+.glow-pulse { animation: glowPulse 3s ease-in-out infinite; }
+
+@keyframes gridMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50px, 50px); }
+}
+.grid-move { animation: gridMove 20s linear infinite; }
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+.shimmer {
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+.animate-blink { animation: blink 1s step-end infinite; }
+
+@keyframes borderGlow {
+    0%, 100% { border-color: rgba(250, 204, 21, 0.3); }
+    50% { border-color: rgba(59, 130, 246, 0.5); }
+}
+.border-glow { animation: borderGlow 4s ease-in-out infinite; }
+
+/* ============================================
+   SCROLL ANIMATION UTILITIES
+   ============================================ */
+
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.animate-on-scroll.animate-visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* ============================================
+   GLASS & UTILITY
+   ============================================ */
+
+.glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-link { position: relative; }
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, #facc15, #3b82f6);
+    transition: width 0.3s ease;
+    border-radius: 1px;
+}
+.nav-link:hover::after { width: 70%; }
+
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Custom pagination for dark theme */
+nav[role="navigation"] svg { width: 1rem; height: 1rem; }
+nav[role="navigation"] span[aria-current="page"] span {
+    background: linear-gradient(135deg, #facc15, #eab308) !important;
+    color: #000 !important;
+}
+nav[role="navigation"] a, nav[role="navigation"] span {
+    color: #9ca3af !important;
+    border-radius: 0.5rem !important;
+    transition: all 0.3s !important;
+}
+
+/* Form focus */
+input:focus, textarea:focus, select:focus {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}

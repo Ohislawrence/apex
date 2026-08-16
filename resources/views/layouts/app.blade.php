@@ -25,13 +25,14 @@
     <meta name="twitter:image" content="@yield('og_image', asset('images/og-default.svg'))">
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="icon" type="image/png" href="{{ asset('images/apexcloud.PNG') }}">
     <title>@yield('title', 'Apex Cloud Tech') | Apex Cloud Tech</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     @if(file_exists(public_path('build/manifest.json')))
-        <link rel="stylesheet" href="{{ asset('build/assets/app-BTNyJX2P.css') }}">
+        <link rel="stylesheet" href="{{ asset('build/assets/app-0x7bX3ll.css') }}">
         <script src="{{ asset('build/assets/app-CcEFHwyy.js') }}" defer></script>
     @else
         <script src="https://cdn.tailwindcss.com"></script>
@@ -67,11 +68,7 @@
             <div class="flex items-center justify-between h-16 lg:h-20">
                 <!-- Logo -->
                 <a href="{{ route('home') }}" class="flex items-center gap-3 group">
-                    <div class="relative w-10 h-10 lg:w-12 lg:h-12">
-                        <div class="absolute inset-0 bg-gradient-to-br from-[#facc15] to-[#eab308] rounded-lg rotate-45 group-hover:rotate-90 transition-transform duration-500"></div>
-                        <div class="absolute inset-1 bg-[#0a0a14] rounded-lg rotate-45"></div>
-                        <span class="absolute inset-0 flex items-center justify-center font-['Orbitron'] font-black text-[#facc15] text-sm lg:text-base">AP</span>
-                    </div>
+                    <img src="{{ asset('images/apexcloud.PNG') }}" alt="Apex Cloud Tech logo" class="w-10 h-10 lg:w-12 lg:h-12 object-contain group-hover:scale-110 transition-transform duration-300">
                     <div>
                         <span class="font-['Orbitron'] font-bold text-lg lg:text-xl text-white tracking-wider">APEX</span>
                         <span class="font-['Orbitron'] font-light text-xs lg:text-sm text-[#3b82f6] tracking-[0.2em] block -mt-1">CLOUD TECH</span>
@@ -164,17 +161,39 @@
                 <!-- Brand -->
                 <div>
                     <div class="flex items-center gap-3 mb-4">
-                        <div class="relative w-10 h-10">
-                            <div class="absolute inset-0 bg-gradient-to-br from-[#facc15] to-[#eab308] rounded-lg rotate-45"></div>
-                            <div class="absolute inset-1 bg-[#060610] rounded-lg rotate-45"></div>
-                            <span class="absolute inset-0 flex items-center justify-center font-['Orbitron'] font-black text-[#facc15] text-sm">AP</span>
-                        </div>
+                        <img src="{{ asset('images/apexcloud.PNG') }}" alt="Apex Cloud Tech logo" class="w-10 h-10 object-contain">
                         <div>
                             <span class="font-['Orbitron'] font-bold text-white tracking-wider">APEX</span>
                             <span class="font-['Orbitron'] font-light text-xs text-[#3b82f6] tracking-[0.2em] block -mt-1">CLOUD TECH</span>
                         </div>
                     </div>
                     <p class="text-gray-400 text-sm leading-relaxed">Building the future of business technology. We craft powerful websites, apps, and digital solutions that drive real results.</p>
+                    <ul class="space-y-2.5 mt-5 text-sm text-gray-400">
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-location-dot text-[#facc15] mt-0.5"></i>
+                            <span>2 Agunbiade Street, Ologolo Road, Lekki, Lagos, Nigeria</span>
+                        </li>
+                        <li>
+                            <a href="mailto:hello@apexcloudtech.com" class="flex items-start gap-2 hover:text-[#3b82f6] transition-colors">
+                                <i class="fas fa-envelope text-[#3b82f6] mt-1"></i>
+                                <span>hello@apexcloudtech.com</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:support@apexcloudtech.com" class="flex items-start gap-2 hover:text-[#06b6d4] transition-colors">
+                                <i class="fas fa-headset text-[#06b6d4] mt-1"></i>
+                                <span>support@apexcloudtech.com</span>
+                            </a>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-phone text-purple-400 mt-1"></i>
+                            <span>
+                                <a href="tel:+2348117297730" class="hover:text-[#facc15] transition-colors">+234 811 729 7730</a>
+                                <span class="text-gray-600 mx-1">·</span>
+                                <a href="tel:09022239628" class="hover:text-[#facc15] transition-colors">0902 223 9628</a>
+                            </span>
+                        </li>
+                    </ul>
                     <div class="flex gap-3 mt-5">
                         <a href="#" class="w-9 h-9 flex items-center justify-center rounded-lg border border-white/10 text-gray-400 hover:text-[#facc15] hover:border-[#facc15]/50 transition-all"><i class="fab fa-x-twitter"></i></a>
                         <a href="#" class="w-9 h-9 flex items-center justify-center rounded-lg border border-white/10 text-gray-400 hover:text-[#3b82f6] hover:border-[#3b82f6]/50 transition-all"><i class="fab fa-linkedin-in"></i></a>
@@ -240,9 +259,9 @@
             <div class="border-t border-white/5 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <p class="text-gray-500 text-sm">&copy; {{ date('Y') }} Apex Cloud Tech. All rights reserved.</p>
                 <div class="flex items-center gap-6">
-                    <a href="#" class="text-gray-500 hover:text-gray-300 text-sm transition-colors">Privacy Policy</a>
-                    <a href="#" class="text-gray-500 hover:text-gray-300 text-sm transition-colors">Terms of Service</a>
-                    <a href="#" class="text-gray-500 hover:text-gray-300 text-sm transition-colors">Cookie Policy</a>
+                    <a href="{{ route('privacy-policy') }}" class="text-gray-500 hover:text-gray-300 text-sm transition-colors">Privacy Policy</a>
+                    <a href="{{ route('terms-of-service') }}" class="text-gray-500 hover:text-gray-300 text-sm transition-colors">Terms of Service</a>
+                    <a href="{{ route('refund-policy') }}" class="text-gray-500 hover:text-gray-300 text-sm transition-colors">Refund Policy</a>
                 </div>
             </div>
         </div>

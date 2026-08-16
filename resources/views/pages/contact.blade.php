@@ -52,20 +52,40 @@
                     <div class="space-y-6">
                         <div class="flex items-start gap-4 bg-white/[0.03] border border-white/10 rounded-xl p-5">
                             <div class="w-10 h-10 bg-[#facc15]/10 rounded-lg flex items-center justify-center shrink-0">
-                                <i class="fas fa-envelope text-[#facc15]"></i>
+                                <i class="fas fa-location-dot text-[#facc15]"></i>
                             </div>
                             <div>
-                                <p class="text-white font-medium text-sm">Email</p>
-                                <p class="text-gray-400 text-sm">hello@apexcloudtech.com</p>
+                                <p class="text-white font-medium text-sm">Official Address</p>
+                                <p class="text-gray-400 text-sm">2 Agunbiade Street, Ologolo Road, Lekki, Lagos, Nigeria</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-4 bg-white/[0.03] border border-white/10 rounded-xl p-5">
                             <div class="w-10 h-10 bg-[#3b82f6]/10 rounded-lg flex items-center justify-center shrink-0">
-                                <i class="fas fa-location-dot text-[#3b82f6]"></i>
+                                <i class="fas fa-envelope text-[#3b82f6]"></i>
                             </div>
                             <div>
-                                <p class="text-white font-medium text-sm">Location</p>
-                                <p class="text-gray-400 text-sm">Lagos, Nigeria — Serving Clients Worldwide</p>
+                                <p class="text-white font-medium text-sm">Official Email</p>
+                                <a href="mailto:hello@apexcloudtech.com" class="text-gray-400 text-sm hover:text-[#facc15] transition-colors">hello@apexcloudtech.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 bg-white/[0.03] border border-white/10 rounded-xl p-5">
+                            <div class="w-10 h-10 bg-[#06b6d4]/10 rounded-lg flex items-center justify-center shrink-0">
+                                <i class="fas fa-headset text-[#06b6d4]"></i>
+                            </div>
+                            <div>
+                                <p class="text-white font-medium text-sm">Support Email</p>
+                                <a href="mailto:support@apexcloudtech.com" class="text-gray-400 text-sm hover:text-[#facc15] transition-colors">support@apexcloudtech.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 bg-white/[0.03] border border-white/10 rounded-xl p-5">
+                            <div class="w-10 h-10 bg-purple-500/10 rounded-lg flex items-center justify-center shrink-0">
+                                <i class="fas fa-phone text-purple-400"></i>
+                            </div>
+                            <div>
+                                <p class="text-white font-medium text-sm">Phone</p>
+                                <a href="tel:+2348117297730" class="text-gray-400 text-sm hover:text-[#facc15] transition-colors">+234 811 729 7730</a>
+                                <span class="text-gray-600 text-sm mx-2">·</span>
+                                <a href="tel:09022239628" class="text-gray-400 text-sm hover:text-[#facc15] transition-colors">0902 223 9628</a>
                             </div>
                         </div>
                         <div class="flex items-start gap-4 bg-white/[0.03] border border-white/10 rounded-xl p-5">

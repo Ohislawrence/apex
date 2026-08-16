@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     @if(file_exists(public_path('build/manifest.json')))
-        <link rel="stylesheet" href="{{ asset('build/assets/app-BTNyJX2P.css') }}">
+        <link rel="stylesheet" href="{{ asset('build/assets/app-0x7bX3ll.css') }}">
         <script src="{{ asset('build/assets/app-CcEFHwyy.js') }}" defer></script>
     @else
         <script src="https://cdn.tailwindcss.com"></script>
@@ -28,9 +28,7 @@
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center gap-6">
                     <a href="{{ route('home') }}" class="flex items-center gap-2">
-                        <div class="w-8 h-8 bg-gradient-to-br from-[#facc15] to-[#eab308] rounded-lg rotate-45 flex items-center justify-center">
-                            <span class="font-['Orbitron'] font-black text-black text-xs -rotate-45">AP</span>
-                        </div>
+                        <img src="{{ asset('images/apexcloud.PNG') }}" alt="Apex Cloud Tech logo" class="w-8 h-8 object-contain">
                         <span class="font-['Orbitron'] font-bold text-white text-sm tracking-wider">ADMIN</span>
                     </a>
                     <nav class="flex items-center gap-1">

@@ -14,6 +14,9 @@ Route::get('/portfolio', [PageController::class, 'portfolio'])->name('portfolio'
 Route::get('/blogs', [PageController::class, 'blogs'])->name('blogs');
 Route::get('/blog/{slug}', [PageController::class, 'blogShow'])->name('blog.show');
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
+Route::get('/refund-policy', [PageController::class, 'refundPolicy'])->name('refund-policy');
+Route::get('/terms-of-service', [PageController::class, 'termsOfService'])->name('terms-of-service');
+Route::get('/privacy-policy', [PageController::class, 'privacyPolicy'])->name('privacy-policy');
 
 // Dashboard redirect
 Route::get('/dashboard', function () {

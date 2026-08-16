@@ -24,7 +24,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
         @if(file_exists(public_path('build/manifest.json')))
-            <link rel="stylesheet" href="{{ asset('build/assets/app-BTNyJX2P.css') }}">
+            <link rel="stylesheet" href="{{ asset('build/assets/app-0x7bX3ll.css') }}">
             <script src="{{ asset('build/assets/app-CcEFHwyy.js') }}" defer></script>
         @else
             <script src="https://cdn.tailwindcss.com"></script>
@@ -34,9 +34,7 @@
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
             <div>
                 <a href="{{ route('home') }}" class="flex items-center gap-3 mb-4">
-                    <div class="w-12 h-12 bg-gradient-to-br from-[#facc15] to-[#eab308] rounded-lg rotate-45 flex items-center justify-center">
-                        <span class="font-['Orbitron'] font-black text-black -rotate-45">AP</span>
-                    </div>
+                    <img src="{{ asset('images/apexcloud.PNG') }}" alt="Apex Cloud Tech logo" class="w-12 h-12 object-contain">
                     <div>
                         <span class="font-['Orbitron'] font-bold text-xl text-gray-800 dark:text-white tracking-wider">APEX</span>
                         <span class="font-['Orbitron'] font-light text-xs text-[#3b82f6] tracking-[0.2em] block -mt-1">CLOUD TECH</span>

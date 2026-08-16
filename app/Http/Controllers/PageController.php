@@ -42,6 +42,21 @@ class PageController extends Controller
         return view('pages.contact');
     }
 
+    public function refundPolicy()
+    {
+        return view('pages.refund-policy');
+    }
+
+    public function termsOfService()
+    {
+        return view('pages.terms-of-service');
+    }
+
+    public function privacyPolicy()
+    {
+        return view('pages.privacy-policy');
+    }
+
     public function portfolio()
     {
         $items = PortfolioItem::active()->ordered()->get();

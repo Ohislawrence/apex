@@ -31,9 +31,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    @if(file_exists(public_path('build/manifest.json')))
-        <link rel="stylesheet" href="{{ asset('build/assets/app-0x7bX3ll.css') }}">
-        <script src="{{ asset('build/assets/app-CcEFHwyy.js') }}" defer></script>
+    @php
+        $manifestPath = public_path('build/manifest.json');
+        $builtCss = null;
+        $builtJs = null;
+        if (file_exists($manifestPath)) {
+            $manifest = json_decode(file_get_contents($manifestPath), true);
+            $builtCss = $manifest['resources/css/app.css']['file'] ?? null;
+            $builtJs = $manifest['resources/js/app.js']['file'] ?? null;
+        }
+    @endphp
+    @if($builtCss && $builtJs)
+        <link rel="stylesheet" href="{{ asset('build/' . $builtCss) }}">
+        <script src="{{ asset('build/' . $builtJs) }}" defer></script>
     @else
         <script src="https://cdn.tailwindcss.com"></script>
         <script>

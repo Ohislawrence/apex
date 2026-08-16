@@ -104,63 +104,40 @@
 </section>
 
 <!-- Our Businesses Section -->
+@if($portfolioItems->count() > 0)
 <section class="py-20 lg:py-28 relative">
     <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#3b82f6]/5 to-transparent"></div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16 animate-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out">
             <span class="text-[#3b82f6] font-['Rajdhani'] font-semibold tracking-widest text-sm uppercase">Our Ecosystem</span>
             <h2 class="text-4xl lg:text-5xl font-['Orbitron'] font-black mt-4 mb-4">Businesses We <span class="text-[#facc15]">Power</span></h2>
-            <p class="text-gray-400 max-w-2xl mx-auto">A suite of innovative SaaS platforms managed and operated by Apex Cloud Tech.</p>
+            <p class="text-gray-400 max-w-2xl mx-auto">Explore the latest businesses and projects from Apex Cloud Tech.</p>
         </div>
         
         <div class="grid md:grid-cols-3 gap-6">
-            <!-- ClickIntel -->
-            <a href="https://clickintel.com" target="_blank" class="group relative bg-gradient-to-br from-white/[0.05] to-white/[0.01] border border-white/10 rounded-2xl p-8 hover:border-[#3b82f6]/50 transition-all duration-500 hover:-translate-y-2 animate-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out">
-                <div class="absolute inset-0 bg-gradient-to-br from-[#3b82f6]/10 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-500"></div>
+            @foreach($portfolioItems as $item)
+            <a @if($item->url) href="{{ $item->url }}" target="_blank" @endif class="group relative bg-gradient-to-br from-white/[0.05] to-white/[0.01] border border-white/10 rounded-2xl p-8 hover:border-white/20 transition-all duration-500 hover:-translate-y-2 animate-on-scroll opacity-0 translate-y-8 ease-out" @if(!$loop->first) style="transition-delay: {{ min($loop->index, 5) * 0.1 }}s;" @endif>
+                <div class="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" style="background: linear-gradient(135deg, {{ $item->color }}18, transparent);"></div>
                 <div class="relative">
-                    <div class="w-14 h-14 bg-gradient-to-br from-[#3b82f6] to-[#2563eb] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
-                        <i class="fas fa-chart-line text-2xl text-white"></i>
+                    <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500" style="background: {{ $item->color }}20;">
+                        <i class="fas {{ $item->icon ?? 'fa-folder' }} text-2xl" style="color: {{ $item->color }};"></i>
                     </div>
-                    <h3 class="text-xl font-['Orbitron'] font-bold text-white mb-3">ClickIntel</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Advanced click analytics and business intelligence platform for data-driven decisions.</p>
-                    <span class="inline-flex items-center gap-2 text-[#3b82f6] text-sm font-medium group-hover:gap-3 transition-all">
+                    <h3 class="text-xl font-['Orbitron'] font-bold text-white mb-3">{{ $item->title }}</h3>
+                    @if($item->description)
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">{{ $item->description }}</p>
+                    @endif
+                    @if($item->url)
+                    <span class="inline-flex items-center gap-2 text-sm font-medium group-hover:gap-3 transition-all" style="color: {{ $item->color }};">
                         Visit Site <i class="fas fa-arrow-right text-xs"></i>
                     </span>
+                    @endif
                 </div>
             </a>
-            
-            <!-- HealthIntel -->
-            <a href="https://healthintel.com" target="_blank" class="group relative bg-gradient-to-br from-white/[0.05] to-white/[0.01] border border-white/10 rounded-2xl p-8 hover:border-[#06b6d4]/50 transition-all duration-500 hover:-translate-y-2 animate-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out" style="transition-delay: 0.1s;">
-                <div class="absolute inset-0 bg-gradient-to-br from-[#06b6d4]/10 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-500"></div>
-                <div class="relative">
-                    <div class="w-14 h-14 bg-gradient-to-br from-[#06b6d4] to-[#0891b2] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
-                        <i class="fas fa-heart-pulse text-2xl text-white"></i>
-                    </div>
-                    <h3 class="text-xl font-['Orbitron'] font-bold text-white mb-3">HealthIntel</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Comprehensive health intelligence solutions leveraging AI for better patient outcomes.</p>
-                    <span class="inline-flex items-center gap-2 text-[#06b6d4] text-sm font-medium group-hover:gap-3 transition-all">
-                        Visit Site <i class="fas fa-arrow-right text-xs"></i>
-                    </span>
-                </div>
-            </a>
-            
-            <!-- OliLearn -->
-            <a href="https://olilearn.com" target="_blank" class="group relative bg-gradient-to-br from-white/[0.05] to-white/[0.01] border border-white/10 rounded-2xl p-8 hover:border-[#facc15]/50 transition-all duration-500 hover:-translate-y-2 animate-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out" style="transition-delay: 0.2s;">
-                <div class="absolute inset-0 bg-gradient-to-br from-[#facc15]/10 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-500"></div>
-                <div class="relative">
-                    <div class="w-14 h-14 bg-gradient-to-br from-[#facc15] to-[#eab308] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
-                        <i class="fas fa-graduation-cap text-2xl text-black"></i>
-                    </div>
-                    <h3 class="text-xl font-['Orbitron'] font-bold text-white mb-3">OliLearn</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Next-gen e-learning platform with interactive courses and AI-powered personalized learning paths.</p>
-                    <span class="inline-flex items-center gap-2 text-[#facc15] text-sm font-medium group-hover:gap-3 transition-all">
-                        Visit Site <i class="fas fa-arrow-right text-xs"></i>
-                    </span>
-                </div>
-            </a>
+            @endforeach
         </div>
     </div>
 </section>
+@endif
 
 <!-- Services Highlights -->
 <section class="py-20 lg:py-28 relative">

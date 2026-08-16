@@ -11,7 +11,8 @@ class PageController extends Controller
     public function home()
     {
         $posts = Post::published()->latest('published_at')->take(3)->get();
-        return view('pages.home', compact('posts'));
+        $portfolioItems = PortfolioItem::active()->latest()->take(3)->get();
+        return view('pages.home', compact('posts', 'portfolioItems'));
     }
 
     public function about()

@@ -7,15 +7,13 @@ use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
-use Spatie\Permission\Models\Role;
 
 class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        // Create roles
-        $adminRole = Role::firstOrCreate(['name' => 'admin']);
-        Role::firstOrCreate(['name' => 'user']);
+        // Create roles and permissions
+        $this->call(RolePermissionSeeder::class);
 
         // Create admin user
         $admin = User::firstOrCreate(

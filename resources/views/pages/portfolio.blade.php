@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Our Portfolio — Apex Cloud Tech')
+@section('meta_description', 'Explore the Apex Cloud Tech portfolio — ClickIntel analytics, HealthIntel health intelligence, OliLearn e-learning, and other custom projects we have built.')
 @push('styles')
 <style>
 .animate-on-scroll.animate-visible {

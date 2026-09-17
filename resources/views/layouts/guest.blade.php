@@ -7,17 +7,17 @@
         <meta name="keywords" content="Apex Cloud Tech, login, register, web development, SaaS">
         <meta name="author" content="Apex Cloud Tech">
         <meta name="robots" content="noindex, follow">
-        <link rel="canonical" href="{{ url()->current() }}">
+        <link rel="canonical" href="{{ request()->url() }}">
         <meta property="og:type" content="website">
-        <meta property="og:url" content="{{ url()->current() }}">
+        <meta property="og:url" content="{{ request()->url() }}">
         <meta property="og:title" content="Apex Cloud Tech — Account">
         <meta property="og:description" content="Access your Apex Cloud Tech account.">
-        <meta property="og:image" content="{{ asset('images/og-default.svg') }}">
+        <meta property="og:image" content="{{ asset('images/apexHome.png') }}">
         <meta property="og:site_name" content="Apex Cloud Tech">
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="Apex Cloud Tech — Account">
         <meta name="twitter:description" content="Access your Apex Cloud Tech account.">
-        <meta name="twitter:image" content="{{ asset('images/og-default.svg') }}">
+        <meta name="twitter:image" content="{{ asset('images/apexHome.png') }}">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>@yield('title', 'Account') | Apex Cloud Tech</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">

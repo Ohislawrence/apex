@@ -3,8 +3,12 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\SeoController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\PortfolioController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\PermissionController;
 
 // Public pages
 Route::get('/', [PageController::class, 'home'])->name('home');
@@ -17,6 +21,10 @@ Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 Route::get('/refund-policy', [PageController::class, 'refundPolicy'])->name('refund-policy');
 Route::get('/terms-of-service', [PageController::class, 'termsOfService'])->name('terms-of-service');
 Route::get('/privacy-policy', [PageController::class, 'privacyPolicy'])->name('privacy-policy');
+
+// SEO
+Route::get('/sitemap.xml', [SeoController::class, 'sitemap'])->name('sitemap');
+Route::get('/robots.txt', [SeoController::class, 'robots'])->name('robots');
 
 // Dashboard redirect
 Route::get('/dashboard', function () {
@@ -34,6 +42,9 @@ Route::middleware('auth')->group(function () {
 Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {
     Route::resource('blogs', BlogController::class);
     Route::resource('portfolio', PortfolioController::class);
+    Route::resource('users', UserController::class)->except(['show']);
+    Route::resource('roles', RoleController::class)->except(['show']);
+    Route::resource('permissions', PermissionController::class)->except(['show']);
 });
 
 // Breeze auth routes

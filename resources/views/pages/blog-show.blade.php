@@ -1,11 +1,41 @@
 @extends('layouts.app')
 
-@section('title', $post->title)
+@section('title', $post->title . ' | Apex Cloud Tech')
 @section('meta_description', $post->excerpt ?? Str::limit(strip_tags($post->content), 155))
 @section('meta_keywords', strip_tags($post->category ?? '') . ', Apex Cloud Tech blog, tech insights')
-@section('og_image', $post->featured_image ?? asset('images/og-default.jpg'))
+@section('og_image', $post->featured_image ?? asset('images/apexHome.png'))
+@section('og_type', 'article')
 
 @section('content')
+<script type="application/ld+json">
+{
+    "@@context": "https://schema.org",
+    "@@type": "BlogPosting",
+    "headline": @json($post->title),
+    "description": @json($post->excerpt ?? Str::limit(strip_tags($post->content), 155)),
+    "image": @json($post->featured_image ?: asset('images/apexHome.png')),
+    "datePublished": @json($post->published_at?->toAtomString()),
+    "dateModified": @json($post->updated_at->toAtomString()),
+    "author": { "@@type": "Organization", "name": "Apex Cloud Tech" },
+    "publisher": {
+        "@@type": "Organization",
+        "name": "Apex Cloud Tech",
+        "logo": { "@@type": "ImageObject", "url": @json(asset('images/apexcloud.PNG')) }
+    },
+    "mainEntityOfPage": @json(request()->url())
+}
+</script>
+<script type="application/ld+json">
+{
+    "@@context": "https://schema.org",
+    "@@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@@type": "ListItem", "position": 1, "name": "Home", "item": @json(url('/')) },
+        { "@@type": "ListItem", "position": 2, "name": "Blog", "item": @json(route('blogs')) },
+        { "@@type": "ListItem", "position": 3, "name": @json($post->title) }
+    ]
+}
+</script>
 <section class="py-20 lg:py-28">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Back Link -->

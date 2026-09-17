@@ -7,26 +7,52 @@
     <meta name="keywords" content="@yield('meta_keywords', 'Apex Cloud Tech, web development, app development, SaaS, ClickIntel, HealthIntel, OliLearn, Laravel, cloud computing')">
     <meta name="author" content="Apex Cloud Tech">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="{{ url()->current() }}">
+    <link rel="canonical" href="{{ request()->url() }}">
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:title" content="@yield('title', 'Apex Cloud Tech') | Apex Cloud Tech">
+    <meta property="og:type" content="@yield('og_type', 'website')">
+    <meta property="og:url" content="{{ request()->url() }}">
+    <meta property="og:title" content="@yield('title', 'Apex Cloud Tech')">
     <meta property="og:description" content="@yield('meta_description', 'Apex Cloud Tech - Building cutting-edge websites and apps for businesses. We power ClickIntel, HealthIntel, and OliLearn.')">
-    <meta property="og:image" content="@yield('og_image', asset('images/og-default.svg'))">
+    <meta property="og:image" content="@yield('og_image', asset('images/apexHome.png'))">
     <meta property="og:site_name" content="Apex Cloud Tech">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="{{ url()->current() }}">
-    <meta name="twitter:title" content="@yield('title', 'Apex Cloud Tech') | Apex Cloud Tech">
+    <meta name="twitter:url" content="{{ request()->url() }}">
+    <meta name="twitter:title" content="@yield('title', 'Apex Cloud Tech')">
     <meta name="twitter:description" content="@yield('meta_description', 'Apex Cloud Tech - Building cutting-edge websites and apps for businesses.')">
-    <meta name="twitter:image" content="@yield('og_image', asset('images/og-default.svg'))">
+    <meta name="twitter:image" content="@yield('og_image', asset('images/apexHome.png'))">
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" type="image/png" href="{{ asset('images/apexcloud.PNG') }}">
-    <title>@yield('title', 'Apex Cloud Tech') | Apex Cloud Tech</title>
+    <title>@yield('title', 'Apex Cloud Tech')</title>
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+    {
+        "@@context": "https://schema.org",
+        "@@graph": [
+            {
+                "@@type": "Organization",
+                "@@id": "{{ url('/') }}/#organization",
+                "name": "Apex Cloud Tech",
+                "url": "{{ url('/') }}",
+                "logo": {
+                    "@@type": "ImageObject",
+                    "url": "{{ asset('images/apexcloud.PNG') }}"
+                }
+            },
+            {
+                "@@type": "WebSite",
+                "@@id": "{{ url('/') }}/#website",
+                "name": "Apex Cloud Tech",
+                "url": "{{ url('/') }}",
+                "publisher": { "@@id": "{{ url('/') }}/#organization" }
+            }
+        ]
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -111,7 +137,6 @@
                         </form>
                     @else
                         <a href="{{ route('login') }}" class="px-5 py-2.5 rounded-lg text-sm font-medium border border-white/20 text-gray-300 hover:text-white hover:border-white/40 transition-all duration-300">Login</a>
-                        <a href="{{ route('register') }}" class="px-5 py-2.5 rounded-lg text-sm font-semibold bg-gradient-to-r from-[#3b82f6] to-[#2563eb] text-white hover:shadow-lg hover:shadow-[#3b82f6]/25 transition-all duration-300">Register</a>
                     @endauth
                 </div>
 
@@ -143,8 +168,7 @@
                             <button type="submit" class="block w-full px-5 py-3 rounded-lg text-sm font-medium border border-white/20 text-gray-300 hover:text-white text-center">Logout</button>
                         </form>
                     @else
-                        <a href="{{ route('login') }}" class="block w-full px-5 py-3 rounded-lg text-sm font-medium border border-white/20 text-gray-300 hover:text-white text-center mb-2">Login</a>
-                        <a href="{{ route('register') }}" class="block w-full px-5 py-3 rounded-lg text-sm font-semibold bg-gradient-to-r from-[#3b82f6] to-[#2563eb] text-white text-center">Register</a>
+                        <a href="{{ route('login') }}" class="block w-full px-5 py-3 rounded-lg text-sm font-medium border border-white/20 text-gray-300 hover:text-white text-center">Login</a>
                     @endauth
                 </div>
             </div>

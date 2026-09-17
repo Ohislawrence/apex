@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'Admin') | Apex Cloud Tech Admin</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,10 +45,16 @@
                     <nav class="flex items-center gap-1">
                         <a href="{{ route('admin.blogs.index') }}" class="px-4 py-2 rounded-lg text-sm font-medium {{ request()->routeIs('admin.blogs.*') ? 'text-[#facc15] bg-white/5' : 'text-gray-400 hover:text-white' }} transition-all">Blogs</a>
                         <a href="{{ route('admin.portfolio.index') }}" class="px-4 py-2 rounded-lg text-sm font-medium {{ request()->routeIs('admin.portfolio.*') ? 'text-[#facc15] bg-white/5' : 'text-gray-400 hover:text-white' }} transition-all">Portfolio</a>
+                        <a href="{{ route('admin.users.index') }}" class="px-4 py-2 rounded-lg text-sm font-medium {{ request()->routeIs('admin.users.*') ? 'text-[#facc15] bg-white/5' : 'text-gray-400 hover:text-white' }} transition-all">Users</a>
+                        <a href="{{ route('admin.roles.index') }}" class="px-4 py-2 rounded-lg text-sm font-medium {{ request()->routeIs('admin.roles.*') ? 'text-[#facc15] bg-white/5' : 'text-gray-400 hover:text-white' }} transition-all">Roles</a>
+                        <a href="{{ route('admin.permissions.index') }}" class="px-4 py-2 rounded-lg text-sm font-medium {{ request()->routeIs('admin.permissions.*') ? 'text-[#facc15] bg-white/5' : 'text-gray-400 hover:text-white' }} transition-all">Permissions</a>
                     </nav>
                 </div>
                 <div class="flex items-center gap-4">
                     <span class="text-gray-400 text-sm">{{ auth()->user()->name }}</span>
+                    <a href="{{ route('profile.edit') }}" class="px-4 py-2 rounded-lg text-sm border border-white/20 text-gray-300 hover:text-white hover:border-white/40 transition-all">
+                        <i class="fas fa-user-gear mr-2"></i>My Account
+                    </a>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button class="px-4 py-2 rounded-lg text-sm border border-white/20 text-gray-300 hover:text-white hover:border-white/40 transition-all">
@@ -63,6 +70,11 @@
         @if(session('success'))
             <div class="bg-green-500/10 border border-green-500/30 text-green-400 px-5 py-3 rounded-xl mb-6 text-sm flex items-center gap-2">
                 <i class="fas fa-check-circle"></i> {{ session('success') }}
+            </div>
+        @endif
+        @if(session('error'))
+            <div class="bg-red-500/10 border border-red-500/30 text-red-400 px-5 py-3 rounded-xl mb-6 text-sm flex items-center gap-2">
+                <i class="fas fa-exclamation-circle"></i> {{ session('error') }}
             </div>
         @endif
         @yield('content')
